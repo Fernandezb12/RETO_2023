@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daniel Fernandez">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Perfil</title>
+</head>
+
+<body class="dashboard">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Manzanas del Cuidado</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="registro.html"><i class="fas fa-user-plus"></i> Registrar Municipios</a></li>
+                <li class="nav-item"><a class="nav-link" href="mapa.html"><i class="fas fa-map-marker-alt"></i> Mapa</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicios.html"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="proponer.html"><i class="fas fa-lightbulb"></i> Proponer</a></li>
+                <li class="nav-item"><a class="nav-link" href="perfil.html"><i class="fas fa-user"></i> Perfil</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="content" class="container mt-5">
+        <div id="content" class="container mt-4">
+            <h1>Perfil de Usuario</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="IMG/editar.png" class="card-img-top" alt="Foto de perfil" style="max-width: 50%; margin: 0 auto;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Nombre del Usuario</h5>
+                            <p class="card-text" style="display: inline-block;">
+                                <img src="IMG/correo.png" alt="Correo electrónico" class="card-img" style="max-width: 20px; margin-right: 5px;">
+                                Correo electrónico: usuario@soy.sena.edu.co
+                            </p>                    
+                            <img src="IMG/llamada-telefonica.png" alt="telefono" class="card-img" style="max-width: 20px; margin-left: 10px;">
+                            <p class="card-text" style="display: inline-block;">Teléfono: +57 320 9378780</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Información Personal</h5>
+                            <form>
+                                <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" value="Nombre del Usuario">
+                                </div>
+                                <div class="form-group">
+                                    <label for="correo">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="correo" value="usuario@soy.sena.edu.co">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefono">Teléfono</label>
+                                    <input type="text" class="form-control" id="telefono" value="+57 320 9378 780">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <footer>
+        &copy; 2023 Manzanas del Cuidado
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteButtons = document.querySelectorAll('.btn-delete');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const clientId = this.getAttribute('data-id');
+                    if (confirm('¿Estás seguro de que deseas eliminar este cliente?')) {
+                        fetch(`/api/delete-client/${clientId}`, {
+                            method: 'DELETE',
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                // Eliminar la fila de la tabla
+                                this.closest('tr').remove();
+                                alert('Cliente eliminado exitosamente.');
+                            } else {
+                                alert('Error al eliminar el cliente.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Error al eliminar el cliente.');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
