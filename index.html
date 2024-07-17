@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Daniel Fernandez">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Login</title>
+</head>
+
+<body class="login">
+    <div class="container w-75 bg-light mt-5 rounded shadow">
+        <div class="row align-items-stretch">
+            <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded"></div>
+            <div class="col p-5 rounded-end">
+                <div class="text-center">
+                    <img src="IMG/ubicacion.png" width="58" alt="logo">
+                </div>
+
+                <h2 class="fw-bold text-center py-5">¡Bienvenido!</h2>
+
+                <!-- LOGIN -->
+                <form action="#">
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" id="email" class="form-control" name="email">
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" id="password" class="form-control" name="password">
+                    </div>
+                    <div class="mb-4 form-check">
+                        <input type="checkbox" id="connected" class="form-check-input" name="connected">
+                        <label for="connected" class="form-check-label">Mantenerme conectado</label>
+                    </div>
+
+                    <div class="d-grid">
+                        <a href="dashboard.html" class="btn btn-primary w-100">Iniciar Sesión</a>
+                    </div>
+                    <div class="my-3">
+                        <span>¿No tienes cuenta? <a href="#">Regístrate</a></span> <br>
+                        <span><a href="#" data-toggle="modal" data-target="#forgotPasswordModal">Recuperar Contraseña</a></span>
+                    </div>
+                </form>
+
+                <!-- LOGIN CON REDES SOCIALES-->
+                <div class="container w-100 my-5">
+                    <div class="row text-center">
+                        <div class="col-12">Continua con</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-primary w-100 my-1">
+                                <div class="row align-items-center">
+                                    <div class="col-2 d-none d-md-block">
+                                        <img src="IMG/fb.png" width="32" alt="Facebook">
+                                    </div>
+                                    <div  class="col-12 col-md-10 text-center">
+                                        Facebook
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-danger w-100 my-1">
+                                <div class="row align-items-center">
+                                    <div class="col-2 d-none d-md-block">
+                                        <img src="IMG/google.png" width="32" alt="Google">
+                                    </div>
+                                    <div class="col-12 col-md-10 text-center">
+                                        Google
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para recuperar contraseña -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="forgotPasswordModalLabel">Recuperar Contraseña</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="forgotPasswordForm">
+                        <div class="form-group">
+                            <label for="forgotPasswordEmail">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="forgotPasswordEmail" name="forgotPasswordEmail" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('forgotPasswordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('forgotPasswordEmail').value;
+            alert('Se ha enviado un enlace de recuperación a ' + email);
+            $('#forgotPasswordModal').modal('hide');
+        });
+    </script>
