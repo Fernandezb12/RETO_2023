@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daniel Fernandez">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Registrar Municipios</title>
+</head>
+
+<body class="dashboard">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Manzanas del Cuidado</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="registro.html"><i class="fas fa-user-plus"></i> Registrar Municipios</a></li>
+                <li class="nav-item"><a class="nav-link" href="mapa.html"><i class="fas fa-map-marker-alt"></i> Mapa</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicios.html"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="proponer.html"><i class="fas fa-lightbulb"></i> Proponer</a></li>
+                <li class="nav-item"><a class="nav-link" href="perfil.html"><i class="fas fa-user"></i> Perfil</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="content" class="container mt-5">
+        <h2>Registrar Municipios</h2>
+        <form id="registerForm" class="bg-light p-4 rounded shadow">
+            <div class="form-group">
+                <label for="municipio">Municipio</label>
+                <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Nombre del Municipio" required>
+            </div>
+            <div class="form-group">
+                <label for="estado">Estado</label>
+                <input type="text" class="form-control" id="estado" name="estado" placeholder="Nombre del Estado" required>
+            </div>
+            <div class="form-group">
+                <label for="habitantes">Número de Habitantes</label>
+                <input type="number" class="form-control" id="habitantes" name="habitantes" placeholder="12345" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+    </div>
+    <footer>
+        &copy; 2023 Manzanas del Cuidado
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Municipio registrado con éxito');
+        });
+    </script>
+</body>
+
+</html>
